@@ -1,0 +1,17 @@
+.download__caption {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.download__button {
+  margin-bottom: $general-block-margin;
+}
+
+.download__copyright {
+  font-style: italic;
+  font-size: $body-font-size-small;
+
+  @include breakpoint(medium up) {
+    font-size: $body-font-size;
+  }
+}

@@ -1,0 +1,69 @@
+.logos--plain {
+  padding-top: $general-block-margin;
+}
+
+.logos__title {
+  @extend %heading-font-styles;
+  @extend %h3-font-size;
+  display: block;
+  margin-bottom: $general-block-margin;
+}
+
+.logos__wrapper {
+  height: auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: $general-block-margin;
+
+  a {
+    flex: 0 1 15%;
+  }
+  .logo {
+    margin: 0 0.65rem 1.25rem;
+    height: 4rem;
+    width: 5rem;
+  }
+
+  .logo--aqua-viva,
+  .logo--fkz {
+    width: 6.5rem;
+  }
+
+  img {
+    max-height: 85px;
+  }
+
+  @include breakpoint(medium up) {
+    .logo {
+      height: 5rem;
+      width: 6rem;
+    }
+
+    .logo--aqua-viva,
+    .logo--fkz {
+      width: 8rem;
+    }
+  }
+
+  @include breakpoint(large up) {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+
+    .logo {
+      height: 4.5rem;
+      width: auto;
+      margin: 0;
+    }
+
+    .logo--aqua-viva {
+      height: 3rem;
+      width: auto;
+    }
+
+    .logo--fkz {
+      height: 3.8rem;
+      width: auto;
+    }
+  }
+}

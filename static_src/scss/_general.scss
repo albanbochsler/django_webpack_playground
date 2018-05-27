@@ -1,0 +1,138 @@
+$general-block-margin: 1.5rem;
+
+%transition-ease {
+  transition: 0.2s ease;
+}
+
+// Sticky Footer
+// =============
+
+body {
+  display: flex;
+  flex-direction: column;
+  // I would rather use min-height, but IE11 crashes the party
+  // https://github.com/philipwalton/flexbugs#3-min-height-on-a-flex-container-wont-apply-to-its-flex-items
+  min-height: 100vh;
+}
+
+.site-content {
+  display: flex;
+  flex-direction: column;
+  // I would rather use min-height, but IE11 crashes the party
+  // https://github.com/philipwalton/flexbugs#3-min-height-on-a-flex-container-wont-apply-to-its-flex-items
+  min-height: 100vh;
+
+  position: relative;
+  height: 100%;
+}
+
+.main-content {
+  flex: 1 0 auto;
+
+  .page--standard & {
+    padding: 1.5rem 0;
+
+    @include breakpoint(medium up) {
+      padding: 3rem 0;
+    }
+
+    @include breakpoint(large up) {
+      padding: 5rem 0;
+    }
+  }
+}
+
+// General elements / behavior styling
+// ===================================
+
+a {
+  color: $primary;
+
+  .richtext & {
+    font-weight: bold;
+
+    &:hover {
+      border-bottom: 1px solid currentColor;
+    }
+  }
+}
+
+p,
+form,
+table {
+  margin-bottom: $general-block-margin;
+}
+
+ul,
+ol {
+  margin-bottom: $general-block-margin;
+  padding-left: 1rem;
+}
+
+// Image Content
+// =============
+
+.image {
+  margin-bottom: $general-block-margin;
+}
+
+.image__caption {
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.image__copyright {
+  font-style: italic;
+  font-size: $body-font-size-small;
+
+  @include breakpoint(medium up) {
+    font-size: $body-font-size;
+  }
+}
+
+// Navigation anchor
+// =================
+
+.anchor {
+  position: relative;
+  top: -1.5rem;
+}
+
+// Flex Video
+// ==========
+
+.flex-video {
+  margin-bottom: $general-block-margin;
+}
+
+// Alternating Background Colors
+// =============================
+
+.section {
+  padding: 2rem 0 0.5rem;
+
+  @include breakpoint(medium up) {
+    padding: 3.75rem 0 2.25rem;
+  }
+}
+
+.section--alt {
+  background-color: $wild-sand;
+}
+
+.section--collector {
+  background-color: $red;
+  color: $white;
+
+  .section__title {
+    color: inherit;
+  }
+}
+
+h2.section__title {
+  @extend %h1-font-size;
+}
+
+h3.section__title {
+  @extend %h2-font-size;
+}

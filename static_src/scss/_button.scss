@@ -1,0 +1,44 @@
+.button {
+  @extend %transition-ease;
+  @extend %h3-font-size;
+
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  font-family: $font-narrow;
+  color: #fff;
+  background-color: $red;
+  border-radius: 0.25rem;
+  font-size: 20px;
+  line-height: 40px;
+  font-weight: bold;
+
+  margin-bottom: $general-block-margin;
+
+  &:hover,
+  &:focus {
+    opacity: 0.7;
+  }
+}
+
+.button-wrapper {
+  margin-bottom: $general-block-margin;
+
+  @include breakpoint(medium up) {
+    display: flex;
+    align-items: center;
+
+    .button {
+      margin-right: 1rem;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.button-wrapper__label {
+  display: block;
+  font-size: $body-font-size-small;
+
+  @include breakpoint(medium up) {
+    font-size: $body-font-size;
+  }
+}

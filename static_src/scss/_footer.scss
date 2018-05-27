@@ -1,0 +1,200 @@
+.footer {
+  margin-top: 80px;
+  position: relative;
+  color: $white;
+  display: flex;
+
+  @include breakpoint(smedium) {
+    margin-top: 50px;
+  }
+  @include breakpoint(portrait) {
+    margin-top: 20px;
+  }
+}
+
+.footer__content {
+  text-align: center;
+
+  @include breakpoint(large up) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.footer__claim {
+  display: inline-block;
+  font-family: $font-headings;
+  font-size: $h2-font-size;
+
+  margin-bottom: 2rem;
+
+  @include breakpoint(medium up) {
+    font-size: rem-calc(48);
+  }
+
+  @include breakpoint(large up) {
+    margin-right: auto;
+    margin-bottom: 0;
+  }
+}
+
+// Footer Graphic and Typo
+// ============
+
+$title-big: 5.5vmin;
+$title-moodboard: 5vmin;
+$title-subtitle: 4vmin;
+
+.moodboard__typo__footer {
+  text-align: right;
+  position: relative;
+  display: flex;
+  height: auto;
+  float: left;
+  right: 90%;
+  flex-direction: column;
+  // margin-right: calc(16.5 * (1vw + 1vh - 1vmin));
+
+  @include breakpoint(max) {
+    //   margin-left: 60px !important;
+  }
+
+  @include breakpoint(smedium down) {
+    right: 80%;
+  }
+
+  @media screen and (max-width: 400px) {
+    display: block;
+  }
+}
+
+.footer__align {
+  position: absolute;
+  top: 0;
+}
+
+.moodboard__footer {
+  bottom: 0;
+}
+
+.illustration__footer {
+  position: relative;
+  margin-bottom: -10px;
+}
+
+.footer__title {
+  font-size: calc(2 * (1vw + 1vh - 1vmin));
+
+  @include breakpoint(large up) {
+    font-size: calc(2.5 * (1vw + 1vh - 1vmin));
+  }
+  @include breakpoint(max only) {
+    font-size: 40px;
+  }
+
+  @media screen and (max-width: 651px) {
+    display: none;
+  }
+
+  //// @include breakpoint(portrait) {
+  ////   font-size: $title-moodboard / 1.2;
+  //// }
+}
+
+.footer__subtitle {
+  font-size: calc(2 * (1vw + 1vh - 1vmin));
+  margin-top: calc(1.5 * (1vw + 1vh - 1vmin));
+  @include breakpoint(large up) {
+    font-size: calc(2.5 * (1vw + 1vh - 1vmin));
+  }
+  @include breakpoint(max only) {
+    font-size: 40px;
+  }
+
+  @include breakpoint(smedium down) {
+    font-size: calc(1.5 * (1vw + 1vh - 1vmin));
+    margin-top: 0;
+  }
+
+  //  @include breakpoint(portrait) {
+  //    font-size: $title-subtitle / 1.2;
+  //  }
+}
+
+.footer__big {
+  font-size: calc(4.5 * (1vw + 1vh - 1vmin));
+
+  @include breakpoint(max only) {
+    font-size: 72px;
+  }
+
+  @include breakpoint(smedium down) {
+    font-size: calc(2.5 * (1vw + 1vh - 1vmin));
+  }
+
+  //  @include breakpoint(portrait) {
+  //    font-size: $title-subtitle / 1.2;
+  //  }
+}
+
+// Social Links
+// ============
+
+// TODO change addresses
+
+.social-links {
+  position: relative;
+  right: 5%;
+  text-align: center;
+  //margin-left: 10rem;
+
+  > a {
+    overflow: hidden !important;
+  }
+
+  @include breakpoint(medium up) {
+    //   margin-left: 5rem;
+  }
+
+  @include breakpoint(portrait) {
+    flex-direction: column;
+    //  margin-left: 2rem;
+  }
+
+  @include breakpoint(smedium down) {
+    // margin-left: 2rem;
+  }
+}
+
+footer .social-links__item {
+  margin-right: 10px;
+  align-items: center;
+  @include breakpoint(portrait) {
+    width: 30px;
+    height: 35px;
+    margin-right: 5px;
+  }
+  @include breakpoint(smedium down) {
+    width: 25px;
+    height: 30px;
+    margin-right: 5px;
+  }
+}
+
+.social-icon {
+  @extend %transition-ease;
+  transition-property: fill;
+
+  :hover circle {
+    fill: darken(#334f8d, 3) !important;
+    @extend %transition-ease;
+  }
+
+  :hover path:first-child {
+    fill: darken(#1997f0, 3) !important;
+  }
+
+  path {
+    @extend %transition-ease;
+  }
+}

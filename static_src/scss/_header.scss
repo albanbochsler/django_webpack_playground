@@ -1,0 +1,357 @@
+$sticky-header-height: rem-calc(55);
+$sticky-header-height-large: 4.75rem;
+
+$icon-height: 1.5rem;
+$icon-width: 2rem;
+$icon-margin: 1rem;
+$stroke-height: 0.25rem;
+$stroke-width: 100%;
+$title-big: 6vmin;
+$title-moodboard: 5.5vmin;
+$title-subtitle: 4.5vmin;
+
+$nav-toggle-transition: 0.25s ease-in-out;
+$box-shadow-soft: 0 2px 5px -1px rgba(0, 0, 0, 0.38);
+$box-shadow-hard: 0 3px 5px -1px rgba(0, 0, 0, 0.38);
+
+.header {
+  padding-top: $sticky-header-height;
+
+  @include breakpoint(large up) {
+    padding-top: $sticky-header-height-large;
+  }
+}
+
+.sticky-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  background: $white;
+  box-shadow: $box-shadow-soft;
+  max-height: $sticky-header-height;
+  transition: 0.2s ease box-shadow;
+
+  .scrolled & {
+    box-shadow: $box-shadow-hard;
+  }
+
+  @include breakpoint(large up) {
+    max-height: $sticky-header-height-large;
+  }
+}
+
+// Moodboard
+// =========
+
+.moodboard {
+  height: 0;
+  padding-bottom: 45.34722%;
+}
+
+.moodboard__illustration {
+  margin-top: 40px;
+  position: absolute;
+}
+
+.moodboard__typo {
+  text-align: right;
+  position: relative;
+  display: flex;
+  height: auto;
+  top: 10%;
+  left: -1%;
+  flex-direction: column;
+  // left: 20%;
+
+  @include breakpoint(portrait) {
+    top: 18%;
+    left: -10%;
+  }
+}
+
+.moodboard__title {
+  position: relative;
+  font-family: $font-headings;
+  line-height: 1.06667;
+  color: $tundora;
+  font-size: calc(5 * (1vw + 1vh - 1vmin));
+  font-weight: 900;
+
+  @include breakpoint(max only) {
+    font-size: 84px;
+  }
+
+  @include breakpoint(portrait) {
+    font-size: $title-moodboard;
+  }
+}
+
+.moodboard__subtitle {
+  text-align: right;
+  position: relative;
+  font-family: $font-headings-small;
+  font-weight: bold;
+  line-height: 1.06667;
+  color: $red;
+  font-size: calc(2 * (1.5vw + 1vh - 1vmin));
+  margin-top: calc(4.5 * (1vw + 1vh - 1vmin));
+
+  @include breakpoint(max only) {
+    font-size: 60px;
+  }
+
+  @include breakpoint(portrait) {
+    margin-top: 10px;
+    font-size: $title-subtitle;
+  }
+}
+
+.moodboard__subtitle__big {
+  text-align: right;
+  position: relative;
+  font-family: $font-headings;
+  line-height: 1.06667;
+  color: #424242;
+  font-size: calc(5.5 * (1.2vw + 1vh - 1vmin));
+
+  @include breakpoint(max only) {
+    font-size: 108px;
+  }
+
+  @include breakpoint(portrait) {
+    font-size: $title-big;
+  }
+}
+
+.moodboard__call-to-action {
+  @extend %transition-ease;
+  @extend %h3-font-size;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.25rem 0;
+
+  font-family: $font-narrow;
+  font-weight: bold;
+  text-align: center;
+  color: $black;
+
+  background-color: $candlelight;
+
+  transition-property: opacity;
+
+  .arrow {
+    @extend %transition-ease;
+    height: rem-calc(16);
+    width: 2rem;
+    margin-left: 1rem;
+
+    transition-property: transform;
+    will-change: transform;
+  }
+
+  &:hover {
+    opacity: 0.7;
+
+    .arrow {
+      transform: translateX(0.4rem);
+    }
+  }
+
+  @include breakpoint(medium up) {
+    .arrow {
+      height: rem-calc(24);
+      width: 3rem;
+      margin-left: 1.5rem;
+    }
+  }
+}
+
+// Navigation
+// ==========
+
+//todo fix width
+
+//.navigation {
+// @include breakpoint(small) {
+//   width: 100%!important;
+//  }
+// }
+
+.navigation {
+  position: relative;
+  display: flex;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  align-items: center;
+
+  @include breakpoint(large up) {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+}
+
+.navigation__list {
+  margin: 0 0 0 auto;
+  list-style: none;
+  z-index: 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  padding: 0.5rem rem-calc(map-get($grid-column-gutter, small)) / 2;
+  background-color: $white;
+  transition: $nav-toggle-transition;
+  transition-property: opacity, transform;
+  opacity: 0;
+  visibility: hidden;
+
+  .nav-is-open & {
+    opacity: 1;
+    visibility: visible;
+    .social-links__navbar__row {
+      display: flex;
+      width: 80px;
+
+      @include breakpoint(large up) {
+        margin-left: 20px;
+      }
+    }
+  }
+
+  @include breakpoint(large up) {
+    position: static;
+    display: flex;
+    width: auto;
+    padding: 0;
+    opacity: 1;
+    visibility: visible;
+    background-color: transparent;
+    box-shadow: none;
+  }
+}
+
+.social-links__navbar__row {
+  @include breakpoint(large up) {
+    margin-left: 32px;
+  }
+}
+.social-links__navbar {
+  transform: translate(0%, -30%);
+
+  > a {
+    width: 30px;
+    height: 30px;
+    display: flex;
+  }
+
+  :last-child {
+    margin: 0;
+  }
+}
+
+.item_right {
+  margin-left: 0.5rem !important;
+}
+
+.navigation__item {
+  display: inline-block;
+  width: 100%;
+
+  @include breakpoint(large up) {
+    margin-left: 1.5rem;
+    width: auto;
+  }
+}
+
+.navigation__link {
+  color: $tundora;
+  font-family: $font-narrow;
+  font-size: 18px;
+  border-bottom: 1px solid transparent;
+  font-weight: 200;
+
+  &:hover {
+    border-color: $tundora;
+  }
+}
+
+.navigation__link--title {
+  font-family: $font-headings;
+  align-self: flex-start;
+  text-transform: uppercase;
+  border-bottom: none;
+  font-size: 20px;
+}
+
+.social-links__navbar {
+  justify-content: right;
+}
+
+// Navigation Toggle
+// =================
+
+.navigation__toggle {
+  width: $icon-width;
+  height: $icon-height;
+  margin-left: auto;
+
+  position: relative;
+  cursor: pointer;
+
+  .stroke {
+    @extend %transition-ease;
+    display: block;
+    position: absolute;
+    height: $stroke-height;
+    width: 100%;
+    background-color: $tundora;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: $nav-toggle-transition;
+    transition-property: transform, opacity, top, left;
+
+    will-change: transform, opacity, top, left;
+
+    &:nth-child(1) {
+      top: 0;
+      transform-origin: left center;
+    }
+
+    &:nth-child(2) {
+      top: $icon-height / 2 - $stroke-height / 2;
+      transform-origin: left center;
+    }
+
+    &:nth-child(3) {
+      top: $icon-height - $stroke-height;
+      transform-origin: left center;
+    }
+
+    .nav-is-open & {
+      &:nth-child(1) {
+        transform: rotate(45deg);
+        top: -2px;
+        left: 0;
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+      }
+
+      &:nth-child(3) {
+        transform: rotate(-45deg);
+        top: 1.3125rem;
+        left: 0;
+      }
+    }
+  }
+
+  @include breakpoint(large up) {
+    display: none;
+  }
+}

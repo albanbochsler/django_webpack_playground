@@ -1,0 +1,43 @@
+@import '~foundation-sites/scss/util/util';
+
+$global-width: rem-calc(940);
+
+@import '~foundation-sites/scss/foundation';
+
+$global-flexbox: true;
+
+$breakpoints: (
+  small: 0,
+  smedium: 320px,
+  medium: 640px,
+  large: 1024px,
+  xlarge: 1200px,
+  xxlarge: 1440px,
+  max: 1675px
+);
+
+$breakpoint-classes: (small smedium medium large max);
+
+$grid-column-gutter: (
+  small: 30px,
+  medium: 30px
+);
+
+@include foundation-xy-grid-classes;
+@include foundation-responsive-embed;
+@include foundation-flex-classes;
+@include foundation-visibility-classes;
+@include foundation-float-classes;
+@include foundation-text-alignment;
+
+.medium-align-left {
+  @include breakpoint(medium up) {
+    justify-content: flex-start;
+  }
+}
+
+.large-align-left {
+  @include breakpoint(large up) {
+    justify-content: flex-start;
+  }
+}

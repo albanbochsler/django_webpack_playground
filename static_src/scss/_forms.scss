@@ -1,0 +1,114 @@
+#content > div:nth-child(3),
+#content > div:nth-child(8) {
+  background: rgb(45, 124, 246);
+}
+
+#content > div:nth-child(3) > div:nth-child(1) > div > div > div,
+#content > div:nth-child(8) > div:nth-child(1) > div > div > div {
+  color: white;
+}
+
+#content > div:nth-child(3) > div:nth-child(1) > div > div > div > h3 {
+  color: white;
+}
+
+#content > div:nth-child(8) > div:nth-child(1) > div > div > div > h2 {
+  color: white;
+}
+
+.help-text {
+  font-size: 13px;
+}
+
+.callout {
+  color: #fff;
+}
+
+.ajax-form {
+  display: flex;
+  flex-flow: row wrap;
+  .widget--textinput {
+    display: flex;
+    flex-flow: column;
+    flex: 20em;
+    margin: 0.1em;
+    padding: 0.25em 0.5em;
+    &:last-child {
+      display: block;
+      flex-flow: unset;
+    }
+  }
+
+  .widget--emailinput {
+    margin: 0.1em;
+    padding: 0.25em 0.5em;
+  }
+}
+
+.ajax-form:nth-child(1) {
+  flex: 1;
+}
+
+form {
+  color: #fff;
+  label {
+    display: inline-block;
+    margin-bottom: 0.25rem;
+
+    &.required::after {
+      content: '*';
+    }
+  }
+
+  input,
+  textarea {
+    display: block;
+    margin-bottom: 1rem;
+    padding: 0.75rem 1rem;
+    background-color: white;
+    border: 0;
+    width: 100%;
+
+    @include breakpoint(medium up) {
+      padding: 0.75rem 1rem;
+    }
+  }
+
+  select {
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .button {
+    margin-top: 1rem;
+  }
+}
+
+.error {
+  input,
+  textarea {
+    margin-bottom: 0;
+  }
+}
+
+.form__errors {
+  margin-bottom: $general-block-margin;
+  font-weight: bold;
+}
+
+.errorlist {
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  list-style: none;
+  background-color: $candlelight;
+
+  color: $black;
+
+  font-size: $body-font-size-small;
+}
+
+.widget--textinput,
+.widget--emailinput,
+.widget--textarea {
+  width: 100%;
+}

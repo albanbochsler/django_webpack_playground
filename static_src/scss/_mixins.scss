@@ -1,0 +1,29 @@
+// will output the property for increasing breakpoint sizes
+// (breakpoints defined in $breakpoints for foundation)
+// example usage:
+// h1 {
+//   @include resprop('font-size', (2.5rem, 3rem));
+//   @include resprop('text-align', (start, center));
+// }
+
+@mixin resprop($property, $values) {
+  $i: 1;
+  @each $value in $values {
+    @include breakpoint(nth($breakpoints, $i)) {
+      #{$property}: $value;
+    }
+    $i: $i + 1;
+  }
+}
+
+// @mixin moodimage ($image,
+// $height: 100%,
+// $bgPos: center center
+// ) {
+//   background: url($image);
+//   background-repeat: no-repeat;
+//   background-position: $bgPos;
+//   background-size: cover;
+//   height:$height;
+// }
+//

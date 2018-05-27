@@ -1,0 +1,111 @@
+@import url('http://fast.fonts.net/t/1.css?apiType=css&projectid=36a5dbe4-75cf-4fe6-867e-23a9080e1aa1');
+@font-face {
+  font-family: 'Avenir Next W01_n9';
+  src: url('fonts/d268cd4d-987c-468a-a9bb-685df57a3892.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Avenir Next W01';
+  src: url('fonts/d268cd4d-987c-468a-a9bb-685df57a3892.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Avenir Next W01_n8';
+  src: url('fonts/9f6106aa-36e0-4cfb-8cda-c3354eab2461.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Avenir Next W01';
+  src: url('fonts/9f6106aa-36e0-4cfb-8cda-c3354eab2461.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+}
+
+$font-main: 'Arial', sans-serif;
+$font-narrow: 'Arial', sans-serif;
+$font-headings: 'Avenir Next W01_n8', sans-serif;
+$font-headings-small: 'Avenir Next W01_n9', sans-serif;
+
+$body-font-size-small: rem-calc(16);
+$body-font-size: rem-calc(16);
+$body-line-height: 1.5;
+$headings-line-height: 1.09;
+
+$h1-font-size: rem-calc(48px);
+$h2-font-size: rem-calc(28px);
+$h3-font-size: rem-calc(24px);
+
+%heading-font-styles {
+  margin-bottom: 1rem;
+  line-height: $headings-line-height;
+  font-weight: normal;
+  font-family: $font-main;
+}
+
+%h1-font-size {
+  @include resprop(
+    'font-size',
+    ($h1-font-size * 0.3, $h1-font-size * 0.6, $h1-font-size)
+  );
+  margin-bottom: 0.42em;
+}
+
+%h2-font-size {
+  @include resprop('font-size', ($h2-font-size * 0.2, $h2-font-size));
+}
+
+%h3-font-size {
+  @include resprop('font-size', ($body-font-size, $h3-font-size));
+}
+
+h1,
+h2,
+h3,
+h4 {
+  @extend %heading-font-styles;
+  color: $headings-color;
+  font-weight: bold;
+}
+
+h1 {
+  @extend %h1-font-size;
+}
+
+h2 {
+  @extend %h2-font-size;
+}
+
+h3 {
+  @extend %h3-font-size;
+}
+
+// to be extended where it is
+%indent-list-items {
+  margin-left: 1em;
+}
+
+small {
+  font-size: 70%;
+}
+
+body {
+  font-family: $font-main;
+  font-size: $body-font-size-small;
+  line-height: $body-line-height;
+  color: $black;
+
+  @include breakpoint(medium up) {
+    font-size: $body-font-size;
+  }
+}
+
+input,
+textarea,
+select,
+option {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  line-height: inherit;
+  color: $black;
+}

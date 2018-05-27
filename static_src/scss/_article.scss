@@ -1,0 +1,29 @@
+.article {
+  padding: 1.5rem 0;
+
+  @include breakpoint(medium up) {
+    padding: 3rem 0;
+  }
+
+  @include breakpoint(large up) {
+    padding: 5rem 0;
+  }
+}
+
+.article__date {
+  color: lighten($headings-color, 20%);
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.article__title {
+  margin-bottom: $general-block-margin;
+}
+
+.article__sharing {
+  margin-bottom: $general-block-margin;
+}
+
+.article__image {
+  margin-bottom: $general-block-margin;
+}

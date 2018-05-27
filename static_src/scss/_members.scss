@@ -1,0 +1,58 @@
+// Members Grid
+
+.member-ul {
+  display: flex;
+  flex-wrap: wrap;
+  //justify-content: space-between;
+  // padding: 1em;
+  margin: 0 auto;
+  /* @include breakpoint(small down) {
+    justify-content: space-around;
+  }*/
+
+  .member-list {
+    box-sizing: border-box;
+    padding: 0.5em;
+    list-style: none;
+    font-size: 18px;
+    flex: 1 1 25%;
+    margin-top: 20px;
+    @include breakpoint(portrait) {
+      flex: 0 1 15%;
+    }
+  }
+  &:after {
+    content: '';
+    flex: 1 1 75%;
+  }
+}
+
+.others-ul {
+  .members__other {
+    display: flex;
+    flex-wrap: wrap;
+    // justify-content: space-between;
+    margin: 0 auto;
+    .member-list {
+      box-sizing: border-box;
+      padding: 0.5em;
+      list-style: none;
+      font-size: 18px;
+      flex: 1 1 25%;
+      margin-top: 20px;
+    }
+    &:after {
+      content: '';
+      flex: 1 1 75%;
+    }
+  }
+}
+
+.member-list-title,
+.presidium__name {
+  padding: 6px 12px;
+  background: #2671f5;
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+}
